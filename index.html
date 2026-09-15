@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Saki - Information Technology Student CV">
+<title>Saki | IT Student CV</title>
+<style>
+:root{--bg:#080808;--panel:#151515;--text:#fff;--muted:#aaa;--line:#333}
+*{box-sizing:border-box;margin:0;padding:0;scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+a{color:inherit;text-decoration:none}.container{width:90%;max-width:1100px;margin:auto}
+header{position:fixed;top:0;width:100%;z-index:10;background:#080808eF;border-bottom:1px solid var(--line)}
+nav{height:72px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:26px;font-weight:800}.logo span{color:#888}
+.nav-links{display:flex;gap:25px;list-style:none}.nav-links a{color:var(--muted);font-size:14px}.nav-links a:hover{color:#fff}
+.menu{display:none;background:none;color:#fff;border:0;font-size:27px}
+section{padding:95px 0;scroll-margin-top:70px}.hero{min-height:100vh;display:flex;align-items:center;padding-top:120px}
+.hero-grid,.two-col,.contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
+.label{color:#aaa;letter-spacing:4px;font-size:12px;text-transform:uppercase}
+h1{font-size:clamp(60px,10vw,110px);line-height:1;letter-spacing:-5px;margin:18px 0}
+h1 span{color:#888}h2{font-size:clamp(34px,5vw,52px);line-height:1.1;margin:12px 0 20px}
+h3{margin-bottom:10px}.muted,p{color:var(--muted)}.hero p{max-width:500px;margin-bottom:28px}
+.buttons{display:flex;gap:14px;flex-wrap:wrap}.btn{display:inline-block;border:1px solid #fff;border-radius:30px;padding:12px 22px;cursor:pointer;background:transparent;color:#fff;font-weight:700}
+.btn.primary{background:#fff;color:#000}.btn:hover{background:#fff;color:#000;transform:translateY(-3px)}
+.photo{aspect-ratio:1/1.15;max-width:350px;margin:auto;border:1px solid var(--line);border-radius:20px;background:linear-gradient(145deg,#292929,#0e0e0e);display:grid;place-items:center;text-align:center;font-size:70px}
+.photo small{display:block;font-size:12px;letter-spacing:2px;color:#aaa}
+.dark{background:#111}.heading{text-align:center;margin-bottom:48px}.heading p{max-width:600px;margin:auto}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.card{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:28px;transition:.3s}.card:hover{transform:translateY(-6px);border-color:#888}
+.facts{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.fact{padding:25px;background:var(--panel);border:1px solid var(--line);border-radius:14px}.fact strong{font-size:30px;display:block}
+.timeline{max-width:800px;margin:auto;border-left:1px solid #555;padding-left:30px}.timeline article{position:relative;margin-bottom:35px}.timeline article:before{content:"";position:absolute;left:-37px;top:7px;width:12px;height:12px;background:#fff;border-radius:50%}.date{font-size:12px;color:#aaa;letter-spacing:1px;margin-bottom:8px}
+.skill{margin-bottom:25px}.skill-top{display:flex;justify-content:space-between;margin-bottom:8px}.bar{height:5px;background:#333;border-radius:9px;overflow:hidden}.fill{height:100%;background:#fff}
+.project-icon{height:150px;background:linear-gradient(135deg,#333,#111);display:grid;place-items:center;font-size:55px;margin:-28px -28px 25px}
+.tags{display:flex;gap:7px;flex-wrap:wrap;margin:18px 0}.tags span{border:1px solid #444;padding:3px 8px;border-radius:5px;font-size:11px;color:#aaa}
+.experience{display:grid;grid-template-columns:160px 1fr;gap:25px;border:1px solid var(--line);padding:25px;border-radius:14px;background:var(--panel);margin-bottom:18px}
+.contact-info p{margin-bottom:20px}.contact-info a:hover{color:#fff}
+form{background:var(--panel);border:1px solid var(--line);padding:30px;border-radius:15px}.field{margin-bottom:18px}label{display:block;color:#aaa;font-size:13px;margin-bottom:6px}input,textarea{width:100%;background:#0d0d0d;color:#fff;border:1px solid #444;border-radius:8px;padding:12px}textarea{min-height:130px;resize:vertical}.error{color:#ff7777;font-size:12px}.success{display:none;margin-top:15px;padding:12px;border:1px solid #777;border-radius:8px}
+footer{border-top:1px solid var(--line);padding:30px 0;background:#111}.footer{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.social{display:flex;gap:20px;color:#aaa}.social a:hover{color:#fff}
+.top{position:fixed;right:20px;bottom:20px;display:none;border:1px solid #fff;background:#000;color:#fff;border-radius:50%;width:44px;height:44px}
+.reveal{opacity:0;transform:translateY(20px);transition:.7s}.reveal.show{opacity:1;transform:none}
+@media(max-width:850px){.hero-grid,.two-col,.contact-grid{grid-template-columns:1fr;gap:35px}.hero{text-align:center}.hero p{margin-left:auto;margin-right:auto}.buttons{justify-content:center}.photo{max-width:260px;order:-1}.cards{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.nav-links{display:none;position:absolute;top:72px;left:0;width:100%;background:#111;padding:15px 5%;flex-direction:column;gap:10px}.nav-links.open{display:flex}.menu{display:block}.cards{grid-template-columns:1fr}.experience{grid-template-columns:1fr;gap:5px}h1{letter-spacing:-2px}.section{padding:75px 0}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header><div class="container"><nav>
+<a class="logo" href="#home">Saki<span>.</span></a>
+<button class="menu" id="menu" aria-label="Open menu">☰</button>
+<ul class="nav-links" id="nav"><li><a href="#home">Home</a></li><li><a href="#about">About</a></li><li><a href="#education">Education</a></li><li><a href="#skills">Skills</a></li><li><a href="#projects">Projects</a></li><li><a href="#experience">Experience</a></li><li><a href="#contact">Contact</a></li></ul>
+</nav></div></header>
+
+<section class="hero" id="home"><div class="container"><div class="hero-grid">
+<div class="reveal"><div class="label">Hello, I'm</div><h1>Saki<span>.</span></h1><h2>Information Technology Student</h2><p>A curious and creative IT student who enjoys exploring technology, learning programming, and turning ideas into useful digital experiences.</p><div class="buttons"><button class="btn primary" id="download">↓ Download CV</button><a class="btn" href="#contact">Contact Me →</a></div></div>
+<div class="photo reveal" aria-label="Profile photo placeholder">♙<small>YOUR PHOTO<br>PLACEHOLDER</small></div>
+</div></div></section>
+
+<section class="dark" id="about"><div class="container"><div class="heading reveal"><div class="label">Get to know me</div><h2>About Me</h2><p>A little about who I am and what I love to learn.</p></div><div class="two-col">
+<div class="reveal"><h3>Technology meets creativity.</h3><p>I am Saki, an Information Technology student at Payap University. I enjoy programming, web development, creative projects, problem solving, and learning new skills. I believe technology can create useful solutions for everyday life.</p></div>
+<div class="facts reveal"><div class="fact"><strong>01</strong><p>Curious Learner</p></div><div class="fact"><strong>02</strong><p>Creative Thinker</p></div><div class="fact"><strong>03</strong><p>Problem Solver</p></div><div class="fact"><strong>04</strong><p>Future IT Professional</p></div></div>
+</div></div></section>
+
+<section id="education"><div class="container"><div class="heading reveal"><div class="label">My background</div><h2>Education</h2></div><div class="timeline">
+<article class="reveal"><div class="date">COMPLETED • HIGH SCHOOL</div><h3>High School Completion</h3><p>Successfully completed high school education and developed foundational knowledge, communication skills, and an interest in technology.</p></article>
+<article class="reveal"><div class="date">2026 • PRESENT</div><h3>Bachelor's Degree in Information Technology</h3><p>Currently studying Information Technology at <strong>Payap University, Chiang Mai, Thailand.</strong> Learning programming, web development, computer systems, and IT fundamentals.</p></article>
+<article class="reveal"><div class="date">ONGOING • SELF-LEARNING</div><h3>Technology & Programming</h3><p>Building practical skills through coding practice, personal projects, and exploring new technologies.</p></article>
+</div></div></section>
+
+<section class="dark" id="skills"><div class="container"><div class="heading reveal"><div class="label">What I can do</div><h2>My Skills</h2></div><div class="cards">
+<div class="card reveal"><h3>HTML</h3><p>Creating organized website structures.</p><div class="skill"><div class="skill-top"><span>Level</span><span>85%</span></div><div class="bar"><div class="fill" style="width:85%"></div></div></div></div>
+<div class="card reveal"><h3>CSS</h3><p>Designing responsive layouts.</p><div class="skill"><div class="skill-top"><span>Level</span><span>80%</span></div><div class="bar"><div class="fill" style="width:80%"></div></div></div></div>
+<div class="card reveal"><h3>JavaScript</h3><p>Learning interactive features.</p><div class="skill"><div class="skill-top"><span>Level</span><span>65%</span></div><div class="bar"><div class="fill" style="width:65%"></div></div></div></div>
+<div class="card reveal"><h3>Computer Skills</h3><p>Computer operation and digital tools.</p><div class="skill"><div class="skill-top"><span>Level</span><span>85%</span></div><div class="bar"><div class="fill" style="width:85%"></div></div></div></div>
+<div class="card reveal"><h3>Communication</h3><p>Sharing ideas and teamwork.</p><div class="skill"><div class="skill-top"><span>Level</span><span>80%</span></div><div class="bar"><div class="fill" style="width:80%"></div></div></div></div>
+<div class="card reveal"><h3>Problem Solving</h3><p>Analyzing challenges and finding solutions.</p><div class="skill"><div class="skill-top"><span>Level</span><span>75%</span></div><div class="bar"><div class="fill" style="width:75%"></div></div></div></div>
+</div></div></section>
+
+<section id="projects"><div class="container"><div class="heading reveal"><div class="label">My work</div><h2>Projects</h2></div><div class="cards">
+<article class="card reveal"><div class="project-icon">⌨</div><h3>Personal CV Website</h3><p>A responsive portfolio introducing my education, skills, and projects.</p><div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div><button class="btn details" data-name="Personal CV Website">Project Details →</button></article>
+<article class="card reveal"><div class="project-icon">✓</div><h3>To-Do List App</h3><p>A simple task management application for organizing daily activities.</p><div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div><button class="btn details" data-name="To-Do List App">Project Details →</button></article>
+<article class="card reveal"><div class="project-icon">◈</div><h3>Student Dashboard</h3><p>A conceptual dashboard for courses, schedules, and academic information.</p><div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div><button class="btn details" data-name="Student Dashboard">Project Details →</button></article>
+</div></div></section>
+
+<section class="dark" id="experience"><div class="container"><div class="heading reveal"><div class="label">My journey</div><h2>Experience & Activities</h2></div>
+<div class="experience reveal"><div class="date">2026 • PRESENT</div><div><h3>University IT Student</h3><p>Developing knowledge of information technology, programming, and digital systems through university study.</p></div></div>
+<div class="experience reveal"><div class="date">PERSONAL PROJECT</div><div><h3>Web Development Practice</h3><p>Practicing HTML, CSS, and JavaScript by creating websites and interactive projects.</p></div></div>
+<div class="experience reveal"><div class="date">CREATIVE ACTIVITIES</div><div><h3>Creative Events & Teamwork</h3><p>Participating in creative activities, event organization, and teamwork to improve communication and leadership skills.</p></div></div>
+</div></section>
+
+<section id="contact"><div class="container"><div class="heading reveal"><div class="label">Let's connect</div><h2>Contact Me</h2><p>Have a question or want to work together? Send me a message.</p></div><div class="contact-grid">
+<div class="contact-info reveal"><h2>Let's talk.</h2><p>Feel free to contact me for opportunities, collaborations, or just to say hello.</p><p>✉ <strong>Email:</strong><br><a href="mailto:hanabisaki13@gmail.com">hanabisaki13@gmail.com</a></p><p>☎ <strong>Phone:</strong><br><a href="tel:+66629067245">+66629067245</a></p><p>⌖ <strong>Location:</strong><br>Chiang Mai, Thailand</p><p>f <strong>Facebook:</strong><br><a href="https://www.facebook.com/share/1FYv1ZmqBz/" target="_blank" rel="noopener">Visit my Facebook profile →</a></p></div>
+<form id="form" class="reveal" novalidate><div class="field"><label for="name">Your Name</label><input id="name" placeholder="Enter your name"><span class="error" id="nameError"></span></div><div class="field"><label for="email">Your Email</label><input id="email" type="email" placeholder="Enter your email"><span class="error" id="emailError"></span></div><div class="field"><label for="message">Your Message</label><textarea id="message" placeholder="Write your message..."></textarea><span class="error" id="messageError"></span></div><button class="btn primary" type="submit">Send Message →</button><div class="success" id="success" role="status"></div></form>
+</div></div></section>
+
+<footer><div class="container footer"><p>© <span id="year"></span> Saki. All rights reserved.</p><div class="social"><a href="mailto:hanabisaki13@gmail.com">Email</a><a href="https://www.facebook.com/share/1FYv1ZmqBz/" target="_blank" rel="noopener">Facebook</a><a href="tel:+66629067245">Phone</a></div></div></footer>
+<button class="top" id="top" aria-label="Back to top">↑</button>
+
+<script>
+const menu=document.getElementById('menu'),nav=document.getElementById('nav');
+menu.addEventListener('click',()=>nav.classList.toggle('open'));
+document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');observer.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(e=>observer.observe(e));
+const topBtn=document.getElementById('top');
+window.addEventListener('scroll',()=>topBtn.style.display=scrollY>400?'block':'none');
+topBtn.onclick=()=>scrollTo({top:0,behavior:'smooth'});
+document.getElementById('year').textContent=new Date().getFullYear();
+
+document.getElementById('download').onclick=()=>{
+const cv=`SAKI\nInformation Technology Student\n\nABOUT ME\nA curious and creative IT student interested in programming, technology, problem solving, and learning new skills.\n\nEDUCATION\nHigh School Completion\nBachelor's Degree in Information Technology\nPayap University, Chiang Mai, Thailand\n2026 - Present\n\nSKILLS\nHTML, CSS, JavaScript, Computer Skills, Communication, Problem Solving, Creativity, Teamwork\n\nPROJECTS\nPersonal CV Website\nTo-Do List App\nStudent Dashboard\n\nEXPERIENCE\nUniversity IT Student\nWeb Development Practice\nCreative Events & Teamwork\n\nCONTACT\nEmail: hanabisaki13@gmail.com\nPhone: +66629067245\nLocation: Chiang Mai, Thailand\nFacebook: https://www.facebook.com/share/1FYv1ZmqBz/`;
+const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([cv],{type:'text/plain'}));a.download='Saki-CV.txt';a.click();URL.revokeObjectURL(a.href);
+};
+document.querySelectorAll('.details').forEach(b=>b.onclick=()=>alert(b.dataset.name+'\n\nThis is a portfolio project. Add your live project link or GitHub repository here.'));
+document.getElementById('form').addEventListener('submit',e=>{
+e.preventDefault();document.querySelectorAll('.error').forEach(x=>x.textContent='');
+const name=document.getElementById('name').value.trim(),email=document.getElementById('email').value.trim(),message=document.getElementById('message').value.trim();let ok=true;
+if(name.length<2){nameError.textContent='Please enter your name.';ok=false}
+if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){emailError.textContent='Please enter a valid email.';ok=false}
+if(message.length<10){messageError.textContent='Message must be at least 10 characters.';ok=false}
+if(ok){success.style.display='block';success.textContent='Thank you, '+name+'! Your message was validated. This demo does not send real emails.';e.target.reset()}else success.style.display='none';
+});
+</script>
+</body>
+</html>
